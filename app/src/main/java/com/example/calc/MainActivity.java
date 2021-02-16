@@ -1,10 +1,12 @@
 package com.example.calc;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DecimalFormat;
@@ -115,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return result;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -156,7 +159,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     //textViewRes.setText(df.format(operand1) + sign);
                 }
-                textViewRes.setText(df.format(operand1) + sign2); //форматирование чисел
+                String format = df.format(operand1) + sign2;//форматирование чисел
+                textViewRes.setText(format);
                 textView.setText("");
                 removeTexts = false;
                 break;
@@ -182,6 +186,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-
-
 }
